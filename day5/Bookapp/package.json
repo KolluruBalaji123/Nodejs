@@ -1,0 +1,15 @@
+{
+  "name": "bookapp",
+  "description": "this app will give option to add remove,\r list, update book \r Five Operation\r create\r Read\r update\r Delete\r list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.0"
+  }
+}
