@@ -12,6 +12,7 @@ const loadBook = () => {
         const bookJSON = databuffer.toString()
         // return JSON.parse(bookJSON)
         const bookdata=JSON.parse(bookJSON)
+        console.log("book data",bookdata)
         return bookdata
     }
     catch (err) {
@@ -19,22 +20,45 @@ const loadBook = () => {
     }
 }
 
+
 const createBook = (title, author) => {
-    const books = loadBook()
-    const duplicateBooks = books.filter((book) => book.title === title)
+    const bookObj={
+        title,
+        author
+ 
+     }
+     const books=loadBook()
+     books.push(bookObj)
+     saveBook(books);
+     console.log(`new book craeted!, ${title},${author}`)
 
-    if (duplicateBooks.length === 0) {
-        books.push({
-            title: title,
-            author: author
-        })
-        console.log(`"${title}" book added.`)
-    }
-    else {
-        console.log('Duplicate book title!')
-    }
 
-    saveBook(books)
+
+
+
+
+
+    // const newBook={
+    //     title: title,
+    //     author: author
+    // }
+    // const books = loadBook()
+   
+    // const duplicateBooks = books.filter((book) => book.title === title)
+
+    // if (duplicateBooks.length === 0) {
+    //     books.push(...books,{
+    //         title: title,
+    //         author: author
+    //     })
+    //     console.log(`"${title}" book added.`)
+    // }
+    // else {
+    //     console.log('Duplicate book title!')
+    // }
+    
+
+    // saveBook(books)
 }
 
 const listBook = () => {

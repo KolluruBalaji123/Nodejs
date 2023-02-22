@@ -22,7 +22,8 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
         function (argv) {
             createBook(argv.title, argv.author)
         }
-    )
+    ).parse()
+    
     .command(
         'update',
         'To update book',
