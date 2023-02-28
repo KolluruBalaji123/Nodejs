@@ -1,6 +1,7 @@
 const express=require("express")
 const app=express();
 const port= process.env.port || 3004
+
 const book=[
     {
         title :"Book1",
@@ -15,9 +16,21 @@ const book=[
         author:"Author3"
     }
 ]
+const myLogger = function (req, res, next) {
+    console.log('i am  from middleware')
+    next()
+  }
+  app.use(myLogger)
+
 
 app.get("/",(req,res)=>{
     res.send("welcome to the  Express js just added  and removed")
+})
+app.get("/contactus",(req,res)=>{
+    res.send("welcome to the  contactjs page")
+})
+app.get("/about us",(req,res)=>{
+    res.send("welcome to the  aboutus  page")
 })
 app.get("/api/books",(req,res)=>{
     res.json(book)
